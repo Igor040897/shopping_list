@@ -1,19 +1,11 @@
 package com.example.shopping_list.ui.main
 
 import com.example.shopping_list.data.Repository
+import com.example.shopping_list.ui.main.purchase.PurchaseAdapter
 
-class MainPresenter(val repository: Repository): MainContract.Presenter {
+class MainPresenter(private val repository: Repository): MainContract.Presenter {
 
     private lateinit var view: MainContract.View
-
-    override fun onViewCreated() {
-    }
-
-    override fun onStart() {
-    }
-
-    override fun onStop() {
-    }
 
     override fun subscribe() {
     }

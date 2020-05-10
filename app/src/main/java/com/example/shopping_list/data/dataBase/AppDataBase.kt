@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.shopping_list.data.models.PurchaseItem
+import com.example.shopping_list.data.models.Product
 
 const val NAME_DATABASE = "database-app"
 
@@ -12,11 +12,14 @@ const val VERSION_DATABASE_1 = 1
 const val CURRENT_VERSION_DATABASE = VERSION_DATABASE_1
 
 @Database(
-    entities = [PurchaseItem::class],
+    entities = [Product::class],
     version = CURRENT_VERSION_DATABASE,
     exportSchema = false
 )
 abstract class AppDataBase : RoomDatabase() {
+
+    abstract fun productDao(): ProductDao
+
     companion object {
         @Volatile
         private var INSTANCE: AppDataBase? = null

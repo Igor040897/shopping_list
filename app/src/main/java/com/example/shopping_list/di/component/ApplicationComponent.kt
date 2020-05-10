@@ -5,6 +5,9 @@ import com.example.shopping_list.App
 import com.example.shopping_list.di.module.DataBaseModule
 import com.example.shopping_list.di.module.ui.MainActivityModule
 import com.example.shopping_list.di.module.RepositoryModule
+import com.example.shopping_list.di.module.ui.AddItemActivityModule
+import com.example.shopping_list.di.module.ui.HistoryShoppingFragmentModule
+import com.example.shopping_list.di.module.ui.ItemsListFragmentModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -16,9 +19,12 @@ import javax.inject.Singleton
     modules = [
         AndroidInjectionModule::class,
         AndroidSupportInjectionModule::class,
-        MainActivityModule::class,
+        DataBaseModule::class,
         RepositoryModule::class,
-        DataBaseModule::class
+        MainActivityModule::class,
+        AddItemActivityModule::class,
+        ItemsListFragmentModule::class,
+        HistoryShoppingFragmentModule::class
     ]
 )
 interface ApplicationComponent {

@@ -17,7 +17,5 @@ abstract class MainActivityModule {
 @Module
 class MainActivityPresenterModule {
     @Provides
-    fun postMainActivityPresenter(repository: Repository): MainPresenter {
-        return MainPresenter(repository)
-    }
+    fun postMainActivityPresenter(repository: Repository) = MainPresenter(repository)
 }

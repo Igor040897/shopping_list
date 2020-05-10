@@ -12,7 +12,7 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity() {
     abstract val contentLayoutId: Int
         @LayoutRes get
 
-    protected open fun setupBinding(binding: B) {}
+    abstract fun setupBinding(binding: B)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

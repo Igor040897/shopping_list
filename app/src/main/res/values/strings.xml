@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">shopping_list</string>
     <string name="action_settings">Settings</string>
+
+    <!--MainActivity-->
+    <string name="label_shopping_list">Список покупок</string>
+
+    <!--AddItemActivity-->
+    <string name="label_add_item">Новая запись</string>
+    <string name="name_hint">Название</string>
+
+    <!--HistoryShoppingFragment-->
+    <string name="label_history_shopping">История покупок</string>
+
 </resources>

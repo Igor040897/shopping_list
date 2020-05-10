@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="actionListener"
+            type="com.example.shopping_list.ui.addItem.AddItemContract.View" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:elevation="@dimen/elevation"
+        android:paddingStart="@dimen/dimen_24"
+        android:paddingEnd="@dimen/dimen_12">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/nameTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:hint="@string/name_hint"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textColor="@color/color_gray"
+            android:textSize="@dimen/text_small_size"
+            android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/addTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:onClick="@{v -> actionListener.onAddItemClick()}"
+            android:paddingStart="@dimen/dimen_12"
+            android:paddingEnd="@dimen/dimen_12"
+            android:text="+"
+            android:textSize="40sp" />
+    </LinearLayout>
+</layout>
