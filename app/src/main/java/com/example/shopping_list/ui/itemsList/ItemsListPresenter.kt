@@ -1,19 +1,41 @@
 package com.example.shopping_list.ui.itemsList
 
 import com.example.shopping_list.data.Repository
-import com.example.shopping_list.ui.main.purchase.PurchaseAdapter
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
 
-class ItemsListPresenter(private val repository: Repository): ItemsListContract.Presenter {
+class ItemsListPresenter(private val repository: Repository) : ItemsListContract.Presenter {
     private val disposables: CompositeDisposable = CompositeDisposable()
     private lateinit var view: ItemsListContract.View
 
-    private lateinit var purchaseAdapter : PurchaseAdapter
+    private var selectModeProductsAdapter: SelectModeProductsAdapter =
+        SelectModeProductsAdapter()
+
+    init {
+        selectModeProductsAdapter.onPurchaseClickListener =
+            object : SelectModeProductsAdapter.OnPurchaseItemClickListener {
+                override fun onLongClicked() {
+                    view.onLongClicked()
+                }
+
+                override fun onClicked(size: Int) {
+                    view.onClicked(size)
+                }
+
+            }
+        disposables.add(
+            repository.allNotPurchaseProducts
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe {
+                    it?.run {
+                        selectModeProductsAdapter.setItems(this)
+                    }
+                }
+        )
+    }
 
     override fun subscribe() {
-        setupPurchaseAdapter()
+        view.postPurchaseAdapter(selectModeProductsAdapter)
     }
 
     override fun unsubscribe() {
@@ -24,23 +46,14 @@ class ItemsListPresenter(private val repository: Repository): ItemsListContract.
         this.view = view
     }
 
-    private fun setupPurchaseAdapter() {
-        purchaseAdapter = PurchaseAdapter()
-
-        disposables.add(repository.allNotPurchaseProducts
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(
-                {
-                    it?.run {
-                        purchaseAdapter.setItems(this)
-                    }
-                },
-                {
-
-                })
-        )
-
-        view.postPurchaseAdapter(purchaseAdapter)
+    fun clearItemSelections() {
+        selectModeProductsAdapter.clearSelections()
     }
+
+    fun shopSelectItems() {
+        val selectedItems = selectModeProductsAdapter.getSelectedItems()
+        repository.saveItemsProduct(selectedItems)
+    }
+
+    fun selectAll() = selectModeProductsAdapter.selectAll()
 }

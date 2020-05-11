@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
@@ -26,7 +27,16 @@ abstract class BaseFragment<B : ViewDataBinding> : Fragment() {
 
     protected open fun setupBinding(binding: B) {}
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         binding = DataBindingUtil.inflate(inflater, contentLayoutId, container, false)
         //todo remove
 //        binding.lifecycleOwner = this
@@ -51,7 +61,10 @@ abstract class BaseFragment<B : ViewDataBinding> : Fragment() {
             var view = activity?.currentFocus
             view = view ?: View(this)
 
-            imm.hideSoftInputFromWindow(activity?.findViewById<View>(android.R.id.content)?.windowToken, 0)
+            imm.hideSoftInputFromWindow(
+                activity?.findViewById<View>(android.R.id.content)?.windowToken,
+                0
+            )
         }
     }
 }

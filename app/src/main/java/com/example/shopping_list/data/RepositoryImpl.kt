@@ -5,6 +5,7 @@ import androidx.lifecycle.MediatorLiveData
 import com.example.shopping_list.data.dataBase.DbStorageManager
 import com.example.shopping_list.data.models.Product
 import com.example.shopping_list.postSuccessResult
+import io.reactivex.Flowable
 import io.reactivex.Maybe
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
@@ -17,15 +18,21 @@ class RepositoryImpl(
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.Main
 
-    override val allPurchaseProducts: Maybe<List<Product>>
+    override val allPurchaseProducts: Flowable<List<Product>>
         get() = dbStorageManager.getAllPurchaseProducts()
 
-    override val allNotPurchaseProducts: Maybe<List<Product>>
+    override val allNotPurchaseProducts: Flowable<List<Product>>
         get() = dbStorageManager.getAllNotPurchaseProducts()
 
     override fun saveItemProduct(product: Product) {
         launch(Dispatchers.IO) {
             dbStorageManager.saveItemProduct(product)
+        }
+    }
+
+    override fun saveItemsProduct(products: List<Product>) {
+        launch(Dispatchers.IO) {
+            dbStorageManager.saveItemsProduct(products)
         }
     }
 

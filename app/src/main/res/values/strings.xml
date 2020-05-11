@@ -12,4 +12,9 @@
     <!--HistoryShoppingFragment-->
     <string name="label_history_shopping">История покупок</string>
 
+    <!--ItemsListFragment-->
+    <string name="select_all">Выбрать все</string>
+    <string name="shop">Купить</string>
+    <string name="shop_products_message">Перевести продукты в категорию купленные?</string>
+
 </resources>

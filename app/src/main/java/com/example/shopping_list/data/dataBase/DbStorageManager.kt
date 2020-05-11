@@ -10,6 +10,10 @@ class DbStorageManager private constructor(
         appDataBase.productDao().insertProduct(product)
     }
 
+    fun saveItemsProduct(products: List<Product>) {
+        appDataBase.productDao().insertProducts(products)
+    }
+
     fun getAllPurchaseProducts() = appDataBase.productDao().getAllPurchaseProducts()
 
     fun getAllNotPurchaseProducts() = appDataBase.productDao().getAllNotPurchaseProducts()

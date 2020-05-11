@@ -1,7 +1,6 @@
 package com.example.shopping_list.ui.main
 
 import com.example.shopping_list.data.Repository
-import com.example.shopping_list.ui.main.purchase.PurchaseAdapter
 
 class MainPresenter(private val repository: Repository): MainContract.Presenter {
 

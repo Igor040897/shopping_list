@@ -4,7 +4,11 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
+    <!--Hom tab selector-->
     <color name="color_main_gray">#3CFFFFFF</color>
     <color name="color_gray">#95989a</color>
 
+    <!--item purchase-->
+    <color name="colorItem">#fcc31e</color>
+    <color name="colorItemSelected">#985305</color>
 </resources>

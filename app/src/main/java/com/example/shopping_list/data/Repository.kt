@@ -1,14 +1,15 @@
 package com.example.shopping_list.data
 
-import androidx.lifecycle.LiveData
 import com.example.shopping_list.data.models.Product
-import io.reactivex.Maybe
+import io.reactivex.Flowable
 
 interface Repository {
 
-    val allPurchaseProducts: Maybe<List<Product>>
+    val allPurchaseProducts: Flowable<List<Product>>
 
-    val allNotPurchaseProducts: Maybe<List<Product>>
+    val allNotPurchaseProducts: Flowable<List<Product>>
 
     fun saveItemProduct(product: Product)
+
+    fun saveItemsProduct(products: List<Product>)
 }
