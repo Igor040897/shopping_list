@@ -1,18 +1,19 @@
 package com.example.shopping_list.data
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
+import android.net.Uri
 import com.example.shopping_list.data.dataBase.DbStorageManager
 import com.example.shopping_list.data.models.Product
-import com.example.shopping_list.postSuccessResult
 import io.reactivex.Flowable
-import io.reactivex.Maybe
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import java.io.File
+import java.util.*
 import kotlin.coroutines.CoroutineContext
 
 class RepositoryImpl(
-    private val dbStorageManager: DbStorageManager
-//    private val fileWorker: FileWorker
+    private val dbStorageManager: DbStorageManager,
+    private val fileWorker: FileWorker
 ) : Repository, CoroutineScope {
 
     override val coroutineContext: CoroutineContext
@@ -31,40 +32,31 @@ class RepositoryImpl(
     }
 
     override fun saveItemsProduct(products: List<Product>) {
+        //todo make via RxKotlin
         launch(Dispatchers.IO) {
             dbStorageManager.saveItemsProduct(products)
         }
     }
 
-//    private fun <T> retrieveDataFromDatabaseDefault(
-//        dataFetch: suspend () -> LiveData<T>
-//    ): LiveData<ResultObject<T>> {
-//        val data = MediatorLiveData<ResultObject<T>>()
-//        val job = launch { data.postSuccessResult(dataFetch()) }
-//        return retrieveDataHelper(data, job)
-//    }
-//
-//    private fun <T> retrieveDataHelper(
-//        data: MediatorLiveData<ResultObject<T>>,
-//        job: Job
-//    ): LiveData<ResultObject<T>> {
-//        val processing: ResultObject.Processing?
-//        processing = ResultObject.Processing(job)
-//        if (!job.isCompleted) {
-//            data.postValue(processing)
-//        }
-//        return data
-//    }
+    override fun getTempImageFileUri(name: String) = fileWorker.getTempImageFileUri(name)
+
+    override fun saveImageToFile(uri: Uri): File? = fileWorker.saveImage(uri, Date().toString())?.let {
+        val file = File(it)
+        if (file.exists()) {
+            file
+        } else null
+    }
 
     companion object {
         @Volatile
         private var INSTANCE: RepositoryImpl? = null
 
         fun getInstance(
-            dbStorageManager: DbStorageManager
+            dbStorageManager: DbStorageManager,
+            fileWorker: FileWorker
         ): Repository {
             return INSTANCE ?: synchronized(this) {
-                INSTANCE ?: RepositoryImpl(dbStorageManager).also { INSTANCE = it }
+                INSTANCE ?: RepositoryImpl(dbStorageManager, fileWorker).also { INSTANCE = it }
             }
         }
     }

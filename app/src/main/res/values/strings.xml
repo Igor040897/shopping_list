@@ -17,4 +17,12 @@
     <string name="shop">Купить</string>
     <string name="shop_products_message">Перевести продукты в категорию купленные?</string>
 
+    <!--AddPhotoDialogFragment-->
+    <string name="make_a_photo">Сделать фото</string>
+    <string name="upload_from_gallery">Загрузить из галереи</string>
+
+    <!--AddPhotoDialogFragment-->
+    <string name="take_photo_error">Извините, произошла ошибка. Попробуйте сделать фото еще раз</string>
+    <string name="file_access_canceled">Нужен доступ к фото, мультимедиа и файлам на устройстве</string>
+
 </resources>

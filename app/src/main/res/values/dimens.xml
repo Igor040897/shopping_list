@@ -3,6 +3,7 @@
 
     <dimen name="elevation">2dp</dimen>
     <dimen name="text_small_size">20sp</dimen>
+    <dimen name="bottom_sheet_dialog_corner_radius">1dp</dimen>
 
     <!-- Spaces -->
     <dimen name="dimen_12">12dp</dimen>

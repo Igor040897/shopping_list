@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--    <style name="Headline1TextAppearance" parent="HeadlineTextAppearance">-->
+    <!--        <item name="android:gravity">center</item>-->
+    <!--        <item name="android:textAlignment">center</item>-->
+    <!--    </style>-->
+
+    <!--    <style name="HeadlineTextAppearance" parent="TextAppearance.AppCompat">-->
+    <!--        <item name="android:fontFamily">@font/roboto_bold</item>-->
+    <!--        <item name="android:textSize">18sp</item>-->
+    <!--        <item name="android:textColor">@color/colorDarkerGray</item>-->
+    <!--    </style>-->
+
+    <!--    <style name="DefaultTextInputTextAppearance" parent="TextAppearance.AppCompat">-->
+    <!--        <item name="android:fontFamily">@font/roboto_regular</item>-->
+    <!--        <item name="android:textSize">16sp</item>-->
+    <!--        <item name="android:textColor">@color/colorDarkerGray</item>-->
+    <!--    </style>-->
+
+    <!--    <style name="Body6TextAppearance" parent="TextAppearance.AppCompat">-->
+    <!--        <item name="android:fontFamily">@font/roboto_bold</item>-->
+    <!--        <item name="android:textSize">18sp</item>-->
+    <!--        <item name="android:textColor">@color/colorDarkerGray</item>-->
+    <!--    </style>-->
+
+    <!--    <style name="Body5TextAppearance" parent="TextAppearance.AppCompat">-->
+    <!--        <item name="android:fontFamily">@font/roboto_medium</item>-->
+    <!--        <item name="android:textSize">14sp</item>-->
+    <!--        <item name="android:textColor">@color/colorBlue</item>-->
+    <!--    </style>-->
+
+    <!--    <style name="Body4TextAppearance" parent="TextAppearance.AppCompat">-->
+    <!--        <item name="android:fontFamily">@font/roboto_medium</item>-->
+    <!--        <item name="android:textSize">14sp</item>-->
+    <!--        <item name="android:textColor">@android:color/white</item>-->
+    <!--    </style>-->
+
+    <!--    <style name="Body3TextAppearance" parent="TextAppearance.AppCompat">-->
+    <!--        <item name="android:fontFamily">@font/roboto_medium</item>-->
+    <!--        <item name="android:textSize">16sp</item>-->
+    <!--        <item name="android:textColor">@color/colorDarkerGray</item>-->
+    <!--    </style>-->
+
+    <!--    <style name="Body2TextAppearance" parent="TextAppearance.AppCompat">-->
+    <!--        <item name="android:fontFamily">@font/roboto_medium</item>-->
+    <!--        <item name="android:textSize">14sp</item>-->
+    <!--        <item name="android:textColor">@color/colorDarkerGray</item>-->
+    <!--    </style>-->
+
+    <!--    <style name="Body1TextAppearance" parent="TextAppearance.AppCompat">-->
+    <!--        <item name="android:fontFamily">@font/roboto_regular</item>-->
+    <!--        <item name="android:textSize">14sp</item>-->
+    <!--        <item name="android:textColor">@color/colorDarkerGray</item>-->
+    <!--    </style>-->
+
+    <!--todo maybe remove-->
+    <style name="CaptionTextAppearance" parent="TextAppearance.AppCompat">
+<!--        <item name="android:fontFamily">@font/roboto_regular</item>-->
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/colorBody</item>
+    </style>
+
+    <!--    <style name="ProfileTaskTextAppearance" parent="TextAppearance.AppCompat">-->
+    <!--        <item name="android:fontFamily">@font/roboto_regular</item>-->
+    <!--        <item name="android:textSize">14sp</item>-->
+    <!--        <item name="android:textColor">@color/colorBody</item>-->
+    <!--    </style>-->
+
+    <!--    <style name="ErrorTextAppearance" parent="TextAppearance.AppCompat">-->
+    <!--        <item name="android:fontFamily">@font/roboto_regular</item>-->
+    <!--        <item name="android:textSize">12sp</item>-->
+    <!--        <item name="android:textColor">@color/colorRed</item>-->
+    <!--    </style>-->
+
+    <!--    <style name="ButtonTextAppearance" parent="TextAppearance.AppCompat">-->
+    <!--        <item name="android:fontFamily">@font/roboto_medium</item>-->
+    <!--        <item name="android:textSize">14sp</item>-->
+    <!--    </style>-->
+
+
+    <!--    <style name="TabTextStyle" parent="TextAppearance.Design.Tab">-->
+    <!--        <item name="android:textSize">14sp</item>-->
+    <!--        <item name="android:textStyle">bold</item>-->
+    <!--    </style>-->
+</resources>

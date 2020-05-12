@@ -6,6 +6,7 @@ import androidx.room.PrimaryKey
 @Entity
 data class Product(
     var name : String,
+    var imageUri : String? = null,
     var isPurchase: Boolean = false
 ){
     //todo made date purchase

@@ -3,43 +3,62 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="actionListener"
             type="com.example.shopping_list.ui.addItem.AddItemContract.View" />
-
     </data>
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        android:elevation="@dimen/elevation"
-        android:paddingStart="@dimen/dimen_24"
-        android:paddingEnd="@dimen/dimen_12">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/nameTextView"
-            android:layout_width="0dp"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nameTextInputLayout"
+            style="@style/InputLayoutStyle"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:hint="@string/name_hint"
-            android:inputType="text"
-            android:maxLines="1"
-            android:textColor="@color/color_gray"
-            android:textSize="@dimen/text_small_size"
-            android:textStyle="normal" />
+            android:background="@android:color/white"
+            android:elevation="@dimen/elevation"
+            android:padding="@dimen/dimen_16">
 
-        <TextView
-            android:id="@+id/addTextView"
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/nameTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:hint="@string/name_hint"
+                android:inputType="text"
+                android:maxLines="1"
+                android:textColor="@color/color_gray"
+                android:textSize="@dimen/text_small_size"
+                android:textStyle="normal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/photoImageView"
+            placeholder="@{@drawable/ic_image_black_48dp}"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/addPhotoButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:onClick="@{v -> actionListener.onAddPhotoClick()}"
+            android:text="Прикрепит фото" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/addProductButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:onClick="@{v -> actionListener.onAddItemClick()}"
-            android:paddingStart="@dimen/dimen_12"
-            android:paddingEnd="@dimen/dimen_12"
-            android:text="+"
-            android:textSize="40sp" />
-    </LinearLayout>
+            android:text="Добавить" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>

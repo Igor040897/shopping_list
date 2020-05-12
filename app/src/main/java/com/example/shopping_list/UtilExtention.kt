@@ -1,11 +1,16 @@
 package com.example.shopping_list
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
-import com.example.shopping_list.data.ResultObject
+import android.content.Context
+import com.example.shopping_list.data.IMAGE_EXTENSION
+import java.io.File
+import java.io.IOException
 
-fun <S> MediatorLiveData<ResultObject<S>>.postSuccessResult(source: LiveData<S>) {
-    addSource(source) {
-        postValue(ResultObject.SuccessResult(it))
-    }
+@Throws(IOException::class)
+fun Context.createImageFile(name: String): File {
+    // Create an image file name
+    return File.createTempFile(
+        name,
+        IMAGE_EXTENSION,
+        cacheDir
+    )
 }

@@ -27,6 +27,18 @@ abstract class BaseFragment<B : ViewDataBinding> : Fragment() {
 
     protected open fun setupBinding(binding: B) {}
 
+    //todo make
+//    protected lateinit var presenter: B
+//    protected open fun setupPresenter(binding: B) {}
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//        presenter.subscribe()
+//    }
+//    override fun onDestroyView() {
+//        super.onDestroyView()
+//        presenter.subscribe()
+//    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)

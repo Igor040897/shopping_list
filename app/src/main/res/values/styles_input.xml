@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- region Light Style -->
+    <style name="BaseTextInputLayoutStyle" parent="Widget.Design.TextInputLayout">
+<!--        <item name="android:layout_marginStart">@dimen/dimen_14</item>-->
+<!--        <item name="android:layout_marginEnd">@dimen/dimen_14</item>-->
+<!--        <item name="android:paddingBottom">@dimen/dimen_10</item>-->
+<!--        <item name="errorTextAppearance">@style/BaseErrorAppearanceStyle</item>-->
+<!--        <item name="android:textColorHint">@color/colorBody</item>-->
+<!--        <item name="hintTextAppearance">@style/CaptionTextAppearance</item>-->
+    </style>
+
+    <style name="InputLayoutStyle" parent="Widget.Design.TextInputLayout">
+        <item name="android:textColorHint">@color/colorBody</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="hintTextAppearance">@style/CaptionTextAppearance</item>
+    </style>
+
+<!--    <style name="RegistrationInputLayoutStyle" parent="Widget.Design.TextInputLayout">-->
+<!--        <item name="android:textColorHint">@color/colorBody</item>-->
+<!--        <item name="android:textSize">16sp</item>-->
+<!--        <item name="android:layout_height">wrap_content</item>-->
+<!--        <item name="android:layout_width">match_parent</item>-->
+<!--        <item name="android:layout_marginTop">@dimen/dimen_16</item>-->
+<!--        <item name="errorTextAppearance">@style/BaseErrorAppearanceStyle</item>-->
+<!--        <item name="hintTextAppearance">@style/CaptionTextAppearance</item>-->
+<!--    </style>-->
+
+<!--    <style name="RegistrationEditTextStyle" parent="AppTheme">-->
+<!--        <item name="android:paddingBottom">@dimen/dimen_20</item>-->
+<!--        <item name="android:textColor">@color/colorDarkerGray</item>-->
+<!--    </style>-->
+
+<!--    <style name="BaseTextInputEditTextStyle" parent="AppTheme">-->
+<!--        <item name="android:paddingBottom">@dimen/dimen_24</item>-->
+<!--        <item name="android:textColor">@color/colorDarkerGray</item>-->
+<!--        <item name="android:textColorHint">@color/colorDarkGrayInputText</item>-->
+<!--        <item name="colorControlActivated">@color/colorDarkBlue</item>-->
+<!--        <item name="colorControlNormal">@color/colorDarkGrayInputText</item>-->
+<!--        <item name="emptyFont">@font/roboto_regular</item>-->
+<!--        <item name="android:textSize">16sp</item>-->
+<!--    </style>-->
+
+<!--    <style name="TextInputEditTextLightCommonStyle" parent="TextAppearance.AppCompat">-->
+<!--        <item name="android:textColor">@color/colorCommonLightInputText</item>-->
+<!--        <item name="android:textColorHint">@color/colorWhitish</item>-->
+<!--        <item name="android:textSize">16sp</item>-->
+<!--        <item name="emptyFont">@font/roboto_regular</item>-->
+<!--        <item name="withTextFont">@font/roboto_regular</item>-->
+<!--        <item name="android:theme">@style/CommonInputFieldLightTheme</item>-->
+<!--    </style>-->
+
+<!--    <style name="CommonInputFieldLightTheme" parent="AppTheme">-->
+<!--        <item name="colorControlActivated">@color/colorAccent</item>-->
+<!--        <item name="colorControlNormal">@color/colorCommonLightInputUnderline</item>-->
+<!--        <item name="colorControlHighlight">@color/colorAccent</item>-->
+<!--    </style>-->
+
+<!--    <style name="EditProfileTextInputLayoutStyle" parent="Widget.Design.TextInputLayout">-->
+<!--        <item name="android:textColorHint">@color/colorBody</item>-->
+<!--        <item name="android:layout_marginStart">@dimen/dimen_14</item>-->
+<!--        <item name="android:layout_marginEnd">@dimen/dimen_14</item>-->
+<!--        <item name="android:paddingBottom">@dimen/dimen_10</item>-->
+<!--        <item name="errorTextAppearance">@style/BaseErrorAppearanceStyle</item>-->
+<!--        <item name="android:theme">@style/EditProfileInputFieldTheme</item>-->
+<!--    </style>-->
+
+<!--    <style name="EditProfileEditTextStyle" parent="TextAppearance.AppCompat">-->
+<!--        <item name="android:textColor">@color/colorDarkerGray</item>-->
+<!--        <item name="android:textColorHint">@color/colorBody</item>-->
+<!--        <item name="android:paddingBottom">@dimen/dimen_24</item>-->
+<!--        <item name="android:textSize">16sp</item>-->
+<!--        <item name="emptyFont">@font/roboto_regular</item>-->
+<!--        <item name="withTextFont">@font/roboto_regular</item>-->
+<!--    </style>-->
+
+<!--    <style name="EditProfileInputFieldTheme" parent="AppTheme">-->
+<!--        <item name="colorControlActivated">@color/colorBlue</item>-->
+<!--    </style>-->
+<!--    &lt;!&ndash; endregion &ndash;&gt;-->
+
+
+<!--    &lt;!&ndash; region Dark Style &ndash;&gt;-->
+
+<!--    &lt;!&ndash; endregion &ndash;&gt;-->
+
+<!--    &lt;!&ndash;region Default Style&ndash;&gt;-->
+<!--    <style name="TextInputEditTextDefaultCommonStyle" parent="TextAppearance.AppCompat">-->
+<!--        <item name="android:textColor">@color/colorCommonLightInputText</item>-->
+<!--        <item name="android:textColorHint">@color/colorWhitish</item>-->
+<!--        <item name="android:textSize">16sp</item>-->
+<!--        <item name="emptyFont">@font/roboto_regular</item>-->
+<!--        <item name="withTextFont">@font/roboto_regular</item>-->
+<!--        <item name="android:theme">@style/CommonInputFieldDefaultTheme</item>-->
+<!--    </style>-->
+
+<!--    <style name="CommonInputFieldDefaultTheme" parent="AppTheme">-->
+<!--        <item name="colorControlActivated">@color/colorWhitish</item>-->
+<!--        <item name="colorControlNormal">@color/colorCommonLightInputUnderline</item>-->
+<!--        <item name="colorControlHighlight">@color/colorWhitish</item>-->
+<!--    </style>-->
+    <!--end region-->
+
+</resources>

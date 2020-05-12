@@ -5,9 +5,10 @@ import com.example.shopping_list.ui.base.BaseContract
 class AddItemContract {
     interface View: BaseContract.View {
         fun onAddItemClick()
+        fun onAddPhotoClick()
     }
 
     interface Presenter: BaseContract.Presenter<View> {
-        fun saveItemProduct(product : String)
+        fun saveItemProduct(nameProduct : String)
     }
 }

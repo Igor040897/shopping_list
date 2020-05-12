@@ -3,11 +3,9 @@ package com.example.shopping_list.di.component
 import android.app.Application
 import com.example.shopping_list.App
 import com.example.shopping_list.di.module.DataBaseModule
-import com.example.shopping_list.di.module.ui.MainActivityModule
+import com.example.shopping_list.di.module.FileWorkerModule
 import com.example.shopping_list.di.module.RepositoryModule
-import com.example.shopping_list.di.module.ui.AddItemActivityModule
-import com.example.shopping_list.di.module.ui.HistoryShoppingFragmentModule
-import com.example.shopping_list.di.module.ui.ItemsListFragmentModule
+import com.example.shopping_list.di.module.ui.*
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -20,11 +18,13 @@ import javax.inject.Singleton
         AndroidInjectionModule::class,
         AndroidSupportInjectionModule::class,
         DataBaseModule::class,
+        FileWorkerModule::class,
         RepositoryModule::class,
         MainActivityModule::class,
         AddItemActivityModule::class,
         ItemsListFragmentModule::class,
-        HistoryShoppingFragmentModule::class
+        HistoryShoppingFragmentModule::class,
+        AddPhotoDialogFragmentModule::class
     ]
 )
 interface ApplicationComponent {

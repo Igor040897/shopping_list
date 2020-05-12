@@ -20,13 +20,14 @@ ext {
     rxandroid_version = '2.1.0'
     dagger2_version = '2.27'
     room_version = '2.2.5'
+    glide_version = '4.11.0'
 }
 
 allprojects {
     repositories {
         google()
         jcenter()
-        
+        mavenCentral()
     }
 }
 
