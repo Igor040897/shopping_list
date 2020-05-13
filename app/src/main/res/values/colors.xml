@@ -5,16 +5,7 @@
     <color name="colorAccent">#D81B60</color>
 
     <color name="colorDarkerGray">#2B2B2B</color>
-    <color name="colorBody">#595959</color>
-
-    <color name="colorLightGreen">#DCEDC8</color>
-    <color name="colorWhitish">#D8D8D8</color>
 
     <!--Hom tab selector-->
     <color name="color_main_gray">#3CFFFFFF</color>
-    <color name="color_gray">#95989a</color>
-
-    <!--item purchase-->
-    <color name="colorItem">#fcc31e</color>
-    <color name="colorItemSelected">#985305</color>
 </resources>
