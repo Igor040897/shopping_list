@@ -1,8 +1,6 @@
 package com.example.shopping_list.ui.main
 
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import com.example.shopping_list.R
 import com.example.shopping_list.databinding.ActivityMainBinding
@@ -64,16 +62,4 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), HasAndroidInjector, Ma
             .replace(R.id.container, fragment)
             .commit()
     }
-
-//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-//        menuInflater.inflate(R.menu.menu_main, menu)
-//        return true
-//    }
-
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        return when (item.itemId) {
-//            R.id.action_settings -> true
-//            else -> super.onOptionsItemSelected(item)
-//        }
-//    }
 }

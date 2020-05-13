@@ -2,7 +2,6 @@ package com.example.shopping_list.ui.addItem.addPhoto
 
 import android.net.Uri
 import com.example.shopping_list.data.Repository
-import com.example.shopping_list.data.models.Product
 
 private const val RESULT_FILE_NAME = "user_pic"
 

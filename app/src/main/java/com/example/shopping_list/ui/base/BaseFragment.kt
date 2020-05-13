@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
-import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
@@ -50,8 +49,6 @@ abstract class BaseFragment<B : ViewDataBinding> : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, contentLayoutId, container, false)
-        //todo remove
-//        binding.lifecycleOwner = this
         setupBinding(binding)
         return binding.root
     }
@@ -67,11 +64,11 @@ abstract class BaseFragment<B : ViewDataBinding> : Fragment() {
         }
     }
 
+    //todo hideKeyboard in AddItemActivity
     fun hideKeyboard() {
         context?.run {
             val imm = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
-            var view = activity?.currentFocus
-            view = view ?: View(this)
+            var view = activity?.currentFocus ?: View(this)
 
             imm.hideSoftInputFromWindow(
                 activity?.findViewById<View>(android.R.id.content)?.windowToken,

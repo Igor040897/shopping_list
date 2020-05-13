@@ -3,10 +3,10 @@ package com.example.shopping_list.ui.addItem
 import android.net.Uri
 import com.example.shopping_list.data.Repository
 import com.example.shopping_list.data.models.Product
-import java.io.File
 
 class AddItemPresenter(private val repository: Repository) : AddItemContract.Presenter {
 
+    //todo
     //    private lateinit var view: AddItemContract.View
     private var imageUri: Uri? = null
 

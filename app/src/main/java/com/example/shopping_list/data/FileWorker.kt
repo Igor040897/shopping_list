@@ -13,7 +13,6 @@ import java.io.IOException
 private const val FILE_PROVIDER_AUTHORITY = "${BuildConfig.APPLICATION_ID}.fileprovider"
 private const val FOLDER_IMAGE = "image"
 const val IMAGE_EXTENSION = ".jpg"
-private const val FOLDER_PHOTO_TASK = "Photo"
 
 class FileWorker(val context: Context) {
 
@@ -49,7 +48,7 @@ class FileWorker(val context: Context) {
         openInputStream.use { openInputStream ->
             file = File(getImageDir(), name)
             FileOutputStream(file).use { output ->
-                val buffer = ByteArray(4 * 1024) // or other buffer size
+                val buffer = ByteArray(4 * 1024)
                 var read: Int
                 while (openInputStream.read(buffer).also { read = it } != -1) {
                     output.write(buffer, 0, read)

@@ -14,17 +14,14 @@ import dagger.android.HasAndroidInjector
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
-const val TAG = "AddPhotoDialogFragment"
 private const val REQUEST_UPLOAD_PHOTO_FROM_GALLERY = 0
 private const val REQUEST_TAKE_PHOTO = 1
-private const val IMAGE_URI_KEY = "image_key"
 
 class AddPhotoDialogFragment : BaseBottomSheetDialogFragment<DialogFragmentAddPhotoBinding>(),
     HasAndroidInjector, AddPhotoContract.View {
 
     companion object {
-        fun getInstance(): AddPhotoDialogFragment =
-            AddPhotoDialogFragment()
+        fun getInstance(): AddPhotoDialogFragment = AddPhotoDialogFragment()
     }
 
     @Inject
@@ -83,7 +80,6 @@ class AddPhotoDialogFragment : BaseBottomSheetDialogFragment<DialogFragmentAddPh
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
-
             REQUEST_UPLOAD_PHOTO_FROM_GALLERY -> {
                 if (resultCode == RESULT_OK) {
                     presenter.imageUri = data?.data

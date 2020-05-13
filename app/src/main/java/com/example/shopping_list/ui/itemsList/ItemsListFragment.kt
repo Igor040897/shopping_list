@@ -10,8 +10,6 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
 import androidx.fragment.app.DialogFragment
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.shopping_list.R
 import com.example.shopping_list.databinding.FragmentItemsListBinding
 import com.example.shopping_list.ui.addItem.AddItemActivity
@@ -55,10 +53,8 @@ class ItemsListFragment : BaseFragment<FragmentItemsListBinding>(), ItemsListCon
                         }
                         R.id.item_shop -> {
                             showDialog()
-                            //todo create dialog
                         }
-                        else -> {
-                        }
+                        else -> Unit
                     }
                 }
                 return false
@@ -125,7 +121,8 @@ class ItemsListFragment : BaseFragment<FragmentItemsListBinding>(), ItemsListCon
 
     fun showDialog() {
         fragmentManager?.apply {
-            val newFragment: DialogFragment = AlertDialogFragment.newInstance(R.string.shop_products_message)
+            val newFragment: DialogFragment =
+                AlertDialogFragment.newInstance(R.string.shop_products_message)
             newFragment.setTargetFragment(
                 this@ItemsListFragment,
                 REQUEST_CODE_ALERT_DIALOG_FRAGMENT

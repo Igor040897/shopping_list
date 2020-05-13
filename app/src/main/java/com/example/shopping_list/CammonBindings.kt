@@ -2,7 +2,6 @@ package com.example.shopping_list
 
 import android.graphics.drawable.Drawable
 import android.net.Uri
-import android.widget.ImageView
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide

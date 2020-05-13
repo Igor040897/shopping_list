@@ -6,7 +6,6 @@ import android.view.View
 import com.example.shopping_list.R
 import com.example.shopping_list.databinding.FragmentHistoryShoppingBinding
 import com.example.shopping_list.ui.base.BaseFragment
-import com.example.shopping_list.ui.itemsList.SelectModeProductsAdapter
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
