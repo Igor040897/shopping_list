@@ -8,6 +8,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 private const val MESSAGE_KEY = "MESSAGE_KEY"
 private const val ALERT_DIALOG_THEME = "AlertDialogTheme"
@@ -23,7 +24,7 @@ class AlertDialogFragment : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val message = arguments?.getInt(MESSAGE_KEY)
-        return AlertDialog.Builder(activity, resources.getIdentifier(ALERT_DIALOG_THEME, STYLE, activity?.packageName))
+        return MaterialAlertDialogBuilder(activity, resources.getIdentifier(ALERT_DIALOG_THEME, STYLE, activity?.packageName))
             .apply {
                 if (message != null) setMessage(message)
             }

@@ -4,7 +4,6 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.shopping_list.R
@@ -13,6 +12,7 @@ import com.example.shopping_list.setImage
 import com.example.shopping_list.ui.addItem.addPhoto.AddPhotoDialogFragment
 import com.example.shopping_list.ui.addItem.addPhoto.OnDialogAddPhotoResultListener
 import com.example.shopping_list.ui.base.BaseActivity
+import com.google.android.material.snackbar.Snackbar
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -41,14 +41,27 @@ class AddItemActivity : BaseActivity<ActivityAddItemBinding>(), HasAndroidInject
     }
 
     override fun setupBinding(binding: ActivityAddItemBinding) {
+        setupActionBar()
         binding.actionListener = this
     }
 
+    private fun setupActionBar() {
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.run {
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+        }
+    }
+
     override fun onAddItemClick() {
-        binding.nameTextView.text.toString().run {
-            presenter.saveItemProduct(this)
-            //todo clear all from presenter and unbind View
-            finish()
+        if (binding.nameTextView.text?.isNotEmpty() == true || presenter.hasImage()) {
+            binding.nameTextView.text.toString().run {
+                presenter.saveItemProduct(this)
+                //todo clear all from presenter and unbind View
+                finish()
+            }
+        } else {
+            Snackbar.make(binding.root, R.string.edd_item_hint, Snackbar.LENGTH_SHORT).show()
         }
     }
 
@@ -63,7 +76,7 @@ class AddItemActivity : BaseActivity<ActivityAddItemBinding>(), HasAndroidInject
     //don't need call permission. This made just as example
     private fun checkPermissions(): Boolean {
         if ((ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-            == PackageManager.PERMISSION_GRANTED) &&
+                    == PackageManager.PERMISSION_GRANTED) &&
             (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
                     == PackageManager.PERMISSION_GRANTED)
         ) {
@@ -89,11 +102,17 @@ class AddItemActivity : BaseActivity<ActivityAddItemBinding>(), HasAndroidInject
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when (requestCode) {
             PERMISSION_ACCESS_WRITE_READ_EXTERNAL_STORAGE -> {
-                if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                if (grantResults.isNotEmpty() &&
+                    grantResults[0] == PackageManager.PERMISSION_GRANTED &&
+                    grantResults[1] == PackageManager.PERMISSION_GRANTED
+                ) {
                     val addPhotoDialog = AddPhotoDialogFragment.getInstance()
-                    addPhotoDialog.show(supportFragmentManager, addPhotoDialog::class.java.simpleName)
+                    addPhotoDialog.show(
+                        supportFragmentManager,
+                        addPhotoDialog::class.java.simpleName
+                    )
                 } else {
-                    Toast.makeText(this, getText(R.string.file_access_canceled), Toast.LENGTH_SHORT).show()
+                    Snackbar.make(binding.root, R.string.file_access_canceled, Snackbar.LENGTH_SHORT).show()
                 }
             }
         }

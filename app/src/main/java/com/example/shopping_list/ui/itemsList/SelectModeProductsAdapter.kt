@@ -2,13 +2,14 @@ package com.example.shopping_list.ui.itemsList
 
 import android.util.SparseBooleanArray
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.core.util.keyIterator
 import com.example.shopping_list.data.models.Product
 import com.example.shopping_list.databinding.ItemProductBinding
 import com.example.shopping_list.ui.history.ProductsAdapter
 
-class SelectModeProductsAdapter: ProductsAdapter() {
+class SelectModeProductsAdapter : ProductsAdapter() {
 
     private val selectedItems = SparseBooleanArray()
     private var selectMode = false
@@ -22,7 +23,13 @@ class SelectModeProductsAdapter: ProductsAdapter() {
 
     override fun getItemCount() = items.size
 
-    inner class SelectModeProductItemVH(private val binding: ItemProductBinding) : ProductsAdapter.ProductItemVH(binding) {
+
+//    private interface SelectModeProductItemContractView{
+//        fun test()
+//    }
+
+    inner class SelectModeProductItemVH(private val binding: ItemProductBinding) :
+        ProductsAdapter.ProductItemVH(binding) {
 
         init {
             binding.root.setOnClickListener {
@@ -52,7 +59,19 @@ class SelectModeProductsAdapter: ProductsAdapter() {
 
         override fun bind(item: Product) {
             super.bind(item)
-            binding.container.isActivated = selectedItems[adapterPosition, false]
+            selectedItems[adapterPosition, false].apply {
+                if (this) {
+                    binding.checkImageView.visibility = View.VISIBLE
+                    binding.photoImageView.alpha = 0.5f
+                    binding.nameTextView.alpha = 0.5f
+                    binding.root.alpha = 0.5f
+                } else {
+                    binding.checkImageView.visibility = View.GONE
+                    binding.photoImageView.alpha = 1f
+                    binding.nameTextView.alpha = 1f
+                    binding.root.alpha = 1f
+                }
+            }
         }
     }
 
@@ -70,7 +89,7 @@ class SelectModeProductsAdapter: ProductsAdapter() {
         notifyDataSetChanged()
     }
 
-    fun getSelectedItems() : List<Product> {
+    fun getSelectedItems(): List<Product> {
         val clone = items.clone() as ArrayList<Product>
         selectedItems.keyIterator().forEach { i: Int ->
             clone[i].isPurchase = true
@@ -80,6 +99,6 @@ class SelectModeProductsAdapter: ProductsAdapter() {
 
     interface OnPurchaseItemClickListener {
         fun onLongClicked()
-        fun onClicked(size : Int)
+        fun onClicked(size: Int)
     }
 }

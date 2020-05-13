@@ -14,51 +14,62 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+        </com.google.android.material.appbar.AppBarLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/nameTextInputLayout"
-            style="@style/InputLayoutStyle"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            android:elevation="@dimen/elevation"
+            android:hint="@string/name_hint"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:padding="@dimen/dimen_16">
 
-            <androidx.appcompat.widget.AppCompatEditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/nameTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:hint="@string/name_hint"
-                android:inputType="text"
-                android:maxLines="1"
-                android:textColor="@color/color_gray"
-                android:textSize="@dimen/text_small_size"
-                android:textStyle="normal" />
+                android:maxLines="1"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/photoImageView"
             placeholder="@{@drawable/ic_image_black_48dp}"
             android:layout_width="250dp"
-            android:layout_height="250dp"
+            android:layout_height="0dp"
             android:layout_gravity="center"
-            android:scaleType="centerCrop" />
+            android:layout_weight="1"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_image_black_48dp" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/addPhotoButton"
-            android:layout_width="wrap_content"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_margin="@dimen/dimen_16"
             android:onClick="@{v -> actionListener.onAddPhotoClick()}"
-            android:text="Прикрепит фото" />
+            android:text="@string/attach_photo" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/addProductButton"
-            android:layout_width="wrap_content"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
+            android:layout_margin="@dimen/dimen_16"
             android:onClick="@{v -> actionListener.onAddItemClick()}"
-            android:text="Добавить" />
+            android:text="@string/add" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 </layout>

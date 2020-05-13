@@ -3,6 +3,7 @@ package com.example.shopping_list.ui.addItem
 import android.net.Uri
 import com.example.shopping_list.data.Repository
 import com.example.shopping_list.data.models.Product
+import java.io.File
 
 class AddItemPresenter(private val repository: Repository) : AddItemContract.Presenter {
 
@@ -34,4 +35,6 @@ class AddItemPresenter(private val repository: Repository) : AddItemContract.Pre
     fun saveImage(uri: Uri) {
         imageUri = uri
     }
+
+    fun hasImage() = imageUri != null
 }

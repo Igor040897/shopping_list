@@ -109,12 +109,6 @@ class ItemsListFragment : BaseFragment<FragmentItemsListBinding>(), ItemsListCon
     }
 
     override fun postPurchaseAdapter(adapterSelectMode: SelectModeProductsAdapter) {
-        binding.itemsRecyclerView.addItemDecoration(
-            DividerItemDecoration(
-                activity,
-                LinearLayoutManager.VERTICAL
-            )
-        )
         binding.itemsRecyclerView.adapter = adapterSelectMode
     }
 

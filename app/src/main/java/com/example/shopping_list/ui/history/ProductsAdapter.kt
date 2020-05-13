@@ -1,15 +1,21 @@
 package com.example.shopping_list.ui.history
 
 import android.net.Uri
-import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.shopping_list.R
 import com.example.shopping_list.data.models.Product
 import com.example.shopping_list.databinding.ItemProductBinding
+import com.example.shopping_list.inflateView
 import com.example.shopping_list.setImage
 import com.example.shopping_list.ui.itemsList.ProductsDiffCallback
 import java.io.File
+
+private const val TYPE_IMAGE = 1
+private const val TYPE_TEXT = 2
+private const val TYPE_MIX = 3
 
 open class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ProductItemVH>() {
 
@@ -28,7 +34,7 @@ open class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ProductItemVH>
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductItemVH {
-        val binding = ItemProductBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemProductBinding.bind(parent.inflateView(R.layout.item_product))
         return ProductItemVH(binding)
     }
 
@@ -39,14 +45,54 @@ open class ProductsAdapter : RecyclerView.Adapter<ProductsAdapter.ProductItemVH>
         holder.bind(productItem)
     }
 
+    override fun getItemViewType(position: Int) = items[position].let {
+        if (it.imageUri != null && it.name.isNotEmpty()) {
+            TYPE_MIX
+        } else if (it.imageUri != null) {
+            TYPE_IMAGE
+        } else {
+            TYPE_TEXT
+        }
+    }
+
     open inner class ProductItemVH(private val binding: ItemProductBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         open fun bind(item: Product) {
-            binding.apply {
-                if (item.imageUri != null) {
-                    photoImageView.setImage(Uri.fromFile(File(item.imageUri)))
+            when (getItemViewType(adapterPosition)) {
+                TYPE_IMAGE -> {
+                    bindImageType(item)
                 }
+                TYPE_TEXT -> {
+                    bindTextType(item)
+                }
+                TYPE_MIX -> {
+                    bindMixType(item)
+                }
+            }
+        }
+
+        private fun bindImageType(item: Product) {
+            binding.apply {
+                photoImageView.visibility = View.VISIBLE
+                photoImageView.setImage(Uri.fromFile(File(item.imageUri)))
+                nameTextView.visibility = View.GONE
+            }
+        }
+
+        private fun bindTextType(item: Product) {
+            binding.apply {
+                nameTextView.visibility = View.VISIBLE
+                nameTextView.text = item.name
+                photoImageView.visibility = View.GONE
+            }
+        }
+
+        private fun bindMixType(item: Product) {
+            binding.apply {
+                photoImageView.visibility = View.VISIBLE
+                nameTextView.visibility = View.VISIBLE
+                photoImageView.setImage(Uri.fromFile(File(item.imageUri)))
                 nameTextView.text = item.name
             }
         }
