@@ -46,14 +46,14 @@ class ItemsListPresenter(private val repository: Repository) : ItemsListContract
         this.view = view
     }
 
-    fun clearItemSelections() {
+    override fun clearItemSelections() {
         selectModeProductsAdapter.clearSelections()
     }
 
-    fun shopSelectItems() {
+    override fun shopSelectItems() {
         val selectedItems = selectModeProductsAdapter.getSelectedItems()
         repository.saveItemsProduct(selectedItems)
     }
 
-    fun selectAll() = selectModeProductsAdapter.selectAll()
+    override fun selectAll() = selectModeProductsAdapter.selectAll()
 }

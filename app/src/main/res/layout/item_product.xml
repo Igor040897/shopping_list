@@ -3,8 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/container"
         style="@style/Widget.MaterialComponents.CardView"
@@ -15,7 +13,7 @@
         android:layout_marginEnd="@dimen/dimen_16"
         android:layout_marginBottom="@dimen/dimen_12"
         android:background="@android:color/white"
-        android:elevation="8dp"
+        android:elevation="@dimen/elevation"
         android:orientation="vertical"
         app:cardUseCompatPadding="true">
 

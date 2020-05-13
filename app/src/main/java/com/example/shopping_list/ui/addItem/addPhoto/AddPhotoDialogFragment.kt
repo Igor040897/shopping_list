@@ -4,7 +4,9 @@ import android.app.Activity.RESULT_OK
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.Bundle
 import android.provider.MediaStore
+import android.view.View
 import android.widget.Toast
 import com.example.shopping_list.R
 import com.example.shopping_list.databinding.DialogFragmentAddPhotoBinding
@@ -50,6 +52,11 @@ class AddPhotoDialogFragment : BaseBottomSheetDialogFragment<DialogFragmentAddPh
         binding.apply {
             actionListener = this@AddPhotoDialogFragment
         }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        presenter.subscribe()
     }
 
     override fun onMakePhotoClick() {
@@ -100,5 +107,10 @@ class AddPhotoDialogFragment : BaseBottomSheetDialogFragment<DialogFragmentAddPh
         } else {
             Toast.makeText(context, getString(R.string.take_photo_error), Toast.LENGTH_LONG).show()
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        presenter.unsubscribe()
     }
 }

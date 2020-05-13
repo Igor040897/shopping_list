@@ -12,5 +12,6 @@ class AddPhotoContract {
 
     interface Presenter: BaseContract.Presenter<View> {
         fun getTempImageFileUri(): Uri?
+        fun photoTaken()
     }
 }

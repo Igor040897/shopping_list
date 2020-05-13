@@ -29,8 +29,7 @@ class DbStorageManager private constructor(
                 INSTANCE
                     ?: DbStorageManager(
                         appDataBase
-                    )
-                        .also { INSTANCE = it }
+                    ).also { INSTANCE = it }
             }
         }
     }

@@ -38,6 +38,12 @@ class AddItemActivity : BaseActivity<ActivityAddItemBinding>(), HasAndroidInject
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
+        presenter.attach(this)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        presenter.subscribe()
     }
 
     override fun setupBinding(binding: ActivityAddItemBinding) {
@@ -57,7 +63,6 @@ class AddItemActivity : BaseActivity<ActivityAddItemBinding>(), HasAndroidInject
         if (binding.nameTextView.text?.isNotEmpty() == true || presenter.hasImage()) {
             binding.nameTextView.text.toString().run {
                 presenter.saveItemProduct(this)
-                //todo clear all from presenter and unbind View
                 finish()
             }
         } else {
@@ -121,5 +126,10 @@ class AddItemActivity : BaseActivity<ActivityAddItemBinding>(), HasAndroidInject
     override fun resultPhoto(uri: Uri) {
         binding.photoImageView.setImage(uri)
         presenter.saveImage(uri)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        presenter.unsubscribe()
     }
 }

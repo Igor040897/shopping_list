@@ -6,6 +6,7 @@ import com.example.shopping_list.data.models.Product
 import io.reactivex.Flowable
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import java.io.File
 import java.util.*
@@ -26,14 +27,15 @@ class RepositoryImpl(
         get() = dbStorageManager.getAllNotPurchaseProducts()
 
     override fun saveItemProduct(product: Product) {
-        launch(Dispatchers.IO) {
+        val job = SupervisorJob()
+        launch(Dispatchers.IO + job) {
             dbStorageManager.saveItemProduct(product)
         }
     }
 
     override fun saveItemsProduct(products: List<Product>) {
-        //todo make via RxKotlin
-        launch(Dispatchers.IO) {
+        val job = SupervisorJob()
+        launch(Dispatchers.IO + job) {
             dbStorageManager.saveItemsProduct(products)
         }
     }

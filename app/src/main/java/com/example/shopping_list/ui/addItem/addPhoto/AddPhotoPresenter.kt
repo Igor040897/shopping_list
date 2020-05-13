@@ -35,7 +35,7 @@ class AddPhotoPresenter(private val repository: Repository) : AddPhotoContract.P
         }
 
 
-    fun photoTaken() {
+    override fun photoTaken() {
         view.returnPhoto(photoUri)
     }
 }

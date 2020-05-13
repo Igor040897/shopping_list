@@ -23,11 +23,6 @@ class SelectModeProductsAdapter : ProductsAdapter() {
 
     override fun getItemCount() = items.size
 
-    //todo add View to ItemHolderView
-//    private interface SelectModeProductItemContractView{
-//        fun test()
-//    }
-
     inner class SelectModeProductItemVH(private val binding: ItemProductBinding) :
         ProductsAdapter.ProductItemVH(binding) {
 

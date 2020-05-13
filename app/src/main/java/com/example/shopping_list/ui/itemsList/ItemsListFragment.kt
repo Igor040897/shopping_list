@@ -101,7 +101,7 @@ class ItemsListFragment : BaseFragment<FragmentItemsListBinding>(), ItemsListCon
 
     override fun onDestroyView() {
         super.onDestroyView()
-        presenter.subscribe()
+        presenter.unsubscribe()
     }
 
     override fun postPurchaseAdapter(adapterSelectMode: SelectModeProductsAdapter) {

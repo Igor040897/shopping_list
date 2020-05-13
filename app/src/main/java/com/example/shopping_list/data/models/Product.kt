@@ -9,6 +9,5 @@ data class Product(
     var imageUri : String? = null,
     var isPurchase: Boolean = false
 ){
-    //todo made date purchase
     @PrimaryKey(autoGenerate = true) var id: Long? = null
 }

@@ -6,8 +6,7 @@ import com.example.shopping_list.data.models.Product
 
 class AddItemPresenter(private val repository: Repository) : AddItemContract.Presenter {
 
-    //todo
-    //    private lateinit var view: AddItemContract.View
+    private lateinit var view: AddItemContract.View
     private var imageUri: Uri? = null
 
     override fun subscribe() {
@@ -19,7 +18,7 @@ class AddItemPresenter(private val repository: Repository) : AddItemContract.Pre
     }
 
     override fun attach(view: AddItemContract.View) {
-
+        this.view = view
     }
 
     override fun saveItemProduct(nameProduct: String) {
@@ -32,9 +31,9 @@ class AddItemPresenter(private val repository: Repository) : AddItemContract.Pre
         repository.saveItemProduct(product)
     }
 
-    fun saveImage(uri: Uri) {
+    override fun saveImage(uri: Uri) {
         imageUri = uri
     }
 
-    fun hasImage() = imageUri != null
+    override fun hasImage() = imageUri != null
 }

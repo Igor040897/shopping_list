@@ -17,7 +17,6 @@ fun ViewGroup.inflateView(@LayoutRes layout: Int): View {
 
 @Throws(IOException::class)
 fun Context.createImageFile(name: String): File {
-    // Create an image file name
     return File.createTempFile(
         name,
         IMAGE_EXTENSION,

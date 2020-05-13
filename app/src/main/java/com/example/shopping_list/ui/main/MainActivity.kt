@@ -36,6 +36,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), HasAndroidInjector, Ma
         presenter.attach(this)
     }
 
+    override fun onStart() {
+        super.onStart()
+        presenter.subscribe()
+    }
+
     override fun setupBinding(binding: ActivityMainBinding) {
         setSupportActionBar(binding.toolbar)
         setupBottomNavigation(binding.bottomNavigation)
@@ -61,5 +66,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), HasAndroidInjector, Ma
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, fragment)
             .commit()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        presenter.unsubscribe()
     }
 }
