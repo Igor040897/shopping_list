@@ -1,8 +1,6 @@
 package com.example.shopping_list
 
 import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.Matrix
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
