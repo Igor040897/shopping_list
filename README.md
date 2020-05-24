@@ -1,2 +1,2 @@
 # shopping_list
-The stack of technologies: Kotlin, MVP, Room, Dagger 2, RxKotlin, Data binding
+The stack of technologies: Kotlin, MVP, Room, Dagger 2, RxKotlin, Data binding, material design
